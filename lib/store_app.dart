@@ -10,8 +10,8 @@ class StoreApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
       valueListenable: ConnectivityController.instance.isConnected,
-      builder: (_,value, __){
-        if(value){
+      builder: (_, value, __) {
+        if (value) {
           return MaterialApp(
             debugShowCheckedModeBanner: EnvVariable.instance.debugMode,
             title: 'Store App',
@@ -19,10 +19,10 @@ class StoreApp extends StatelessWidget {
               colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
               useMaterial3: true,
             ),
-            builder: (context,widget){
+            builder: (context, widget) {
               return Scaffold(
                 body: Builder(
-                  builder: (context){
+                  builder: (context) {
                     ConnectivityController.instance.init();
                     return widget!;
                   },
@@ -35,7 +35,7 @@ class StoreApp extends StatelessWidget {
               ),
             ),
           );
-        }else{
+        } else {
           return MaterialApp(
             debugShowCheckedModeBanner: EnvVariable.instance.debugMode,
             title: 'No Network',
